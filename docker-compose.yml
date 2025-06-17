@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  salamander-tracker:
+    build: .
+    ports:
+      - "3000:3000"  # Node.js backend API
+      - "3001:3001"  # Next.js frontend
+    volumes:
+      - ./videos:/videos
+      - ./results:/results
+    environment:
+      - VIDEO_PATH=/videos
+      - RESULT_PATH=/results
+      - NODE_ENV=production
+    restart: unless-stopped 
