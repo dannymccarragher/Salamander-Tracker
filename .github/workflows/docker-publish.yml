@@ -1,5 +1,10 @@
 name: Build and Push to GHCR
 
+- name: Checkout repository
+  uses: actions/checkout@v4
+  with:
+    submodules: 'recursive'
+
 on:
   push:
     branches: [ main, master ]
